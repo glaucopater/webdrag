@@ -1,0 +1,154 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="author" content="flagg.altervista.org">
+    <meta name="description" content="A WebPage constructing other webpages ">
+    <script src="f.txt"></script>
+    <script src="ca-pub-1289699162344710.js"></script>
+    <script>
+    /*******  Notice  *******/
+    alert("[1] Draw a box using mouse");
+    alert("[2] Drag, add or remove boxes with the eraser button");
+    alert("[3] Click on the photo button to get your work");
+    </script>
+    <title>WebDrag Public Beta 0.5</title>
+    <script type="text/Javascript" src="browsercheck.js"></script>
+    <script type="text/Javascript" src="mouseevents.js"></script>
+
+    <script type="text/Javascript" src="dragNaddBox.js"></script>
+    <script src="colorPicker.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" href="measureit.css" type="text/css">
+    <link rel="stylesheet" href="dragNaddBox.css" type="text/css">
+
+    <link rel="preload" href="f(1).txt" as="script">
+    <script type="text/javascript" src="f(1).txt"></script>
+    <link rel="preload" href="f(2).txt" as="script">
+    <script type="text/javascript" src="f(2).txt"></script>
+</head>
+
+<body onmouseover="getMouseOver(event)" onload="getScreenSize()">
+    <div id="boxInfoForm">
+        <div id="boxInfo">
+            <form name="boxInfo">
+                <div id="colorPicker" name="colorPicker">
+                </div>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Div Name</td>
+                            <td><input type="text" class="text" name="boxName" value="0"></td>
+                        </tr>
+                        <tr>
+                            <td>Counter</td>
+                            <td><input type="text" name="boxCount" value="0" readonly=""></td>
+                        </tr>
+                        <tr>
+                            <td>click</td>
+                            <td><input type="text" name="mouseClicks" value="0" readonly=""></td>
+                        </tr>
+                        <tr>
+                            <td>Color</td>
+                            <td colspan="2"><a href="javascript:pickColor(&#39;pick1115816099&#39;);" id="pick1115816099"
+                                    style="border: 1px solid rgb(0, 0, 0); background: rgb(255, 255, 255); font-family: Verdana; font-size: 10px; text-decoration: none; color: rgb(255, 255, 255);">&nbsp;&nbsp;&nbsp;</a>
+                                <input name="colorBox" id="pick1115816099field" class="inputtext" onchange="relateColor(&#39;pick1115816099&#39;, this.value);"
+                                    value="#FFFFFF">
+                                <script language="javascript">relateColor('pick1115816099', "#fff");</script>
+                            </td>
+                        </tr>
+                        <!--
+    <tr>
+    <td>Last color</td>
+    <td>
+    -->
+                        <input name="lastColor" type="hidden" readonly="" class="text" value="">
+                        <!--
+    </td>
+    </tr>
+    -->
+                        <tr>
+                            <input type="hidden" name="boxWidth" value="100">
+                        </tr>
+                        <tr>
+                            <input type="hidden" name="boxHeight" value="100">
+                        </tr>
+                        <tr>
+                            <input type="hidden" name="boxTop" value="100">
+                        </tr>
+                        <tr>
+                            <input type="hidden" name="boxLeft" value="100">
+                        </tr>
+                    </tbody>
+                </table>
+                Show Properties<input type="checkbox" name="showTextInfo">
+                Show Scrolls<input type="checkbox" name="showScrolls">
+                <!--<input type="button" name="addBoxButton" onClick="addBoxWithKey()" value="+">-->
+            </form>
+        </div>
+        <div id="mouseInfo">
+            <form name="myform" action="http://flagg.altervista.org./projects/WebDrag/write.php" method="POST">
+                <p>Mouse</p>
+                <p>X: <input name="movex" size="3" type="text" readonly="">Y: <input name="movey" size="3" type="text"
+                        readonly=""></p>
+                <p>Down: <input name="downx" size="3" type="text" readonly=""> Y: <input name="downy" size="3" type="text"
+                        readonly=""></p>
+                <p>Up: <input name="upx" size="3" type="text" readonly=""> Y: <input name="upy" size="3" type="text"
+                        readonly=""></p>
+                <p>
+                    <!--Cursor is on(main): --><input class="inputText" name="cursorIsOn" type="hidden"></p>
+                <p>Over: <input class="inputText" name="cursorIsOver" type="text" readonly=""></p>
+                <p>Now... <input class="inputText" name="systemStatus" type="text" readonly=""></p>
+                <p>
+                    <!--Permission--> <input class="inputText" name="permission" type="hidden"></p>
+                <p>
+                    <input id="deleteButton" name="deleteButton" type="button" onclick="deletingMode()" title="DELETE"
+                        style="border: 1px ridge; height: 45px; width: 60px; background: url(&quot;css/eraser.gif&quot;) center center no-repeat rgb(255, 238, 255); opacity: 0.3;"
+                        readonly="" disabled="">
+                    <input id="insertButton" name="insertButton" type="button" onclick="insertingMode()" title="DRAW"
+                        style="border:1px ridge; height:45px; width:60px; background:#ffeeff url(css/draw.gif) center center no-repeat">
+                    <input id="snapshotButton" type="submit" value="" class="inputText" title="snapshot" style="border: 1px ridge; height: 45px; width: 60px; background: url(&quot;css/snapshot.gif&quot;) center center no-repeat rgb(255, 238, 255); opacity: 0.3;"
+                        onclick="getSnaphot();">
+                </p>
+                <!--<p>Drawn Boxes-->
+                <input name="boxVals" type="hidden">
+                <!--</p>-->
+                <!--<p>Last Size -->
+                <input class="inputText" name="boxDimension" type="hidden">
+                <!--</p>-->
+                <textarea name="boxesArea" id="boxArray" style="display:none;">Edit Me!</textarea>
+                <textarea name="boxIds" style="display:none;"></textarea>
+                <textarea name="boxValues" style="display:none;"></textarea>
+                <textarea id="boxArrayOfContents" name="boxArrayOfContents" style="display:none;">null</textarea>
+                <textarea id="temp1" name="tempArea1" style="display:none;">tempArea1</textarea>
+                <textarea id="temp2" name="tempArea2" style="display:none;">tempArea2</textarea>
+            </form>
+        </div>
+    </div>
+    <div id="topRuler">&nbsp;</div>
+    <div id="leftRuler">&nbsp;</div>
+    <div id="mainBox" onmouseover="init()" style="cursor: crosshair;"></div>
+    <div id="boxOption">
+        <form name="optionForm" id="optionForm">
+            Tag
+            <select name="codeInjector" <!-- onchange="getAttributesForTag(document.optionForm.codeInjector[document.optionForm.codeInjector.selectedIndex].value)"
+                --="">&gt;
+                <!--<option name="" value="">Choose</option>-->
+                <option name="tag" value="label">label</option>
+                <option name="tag" value="button">button</option>
+                <option name="tag" value="img" onclick="document.getElementById(&#39;imgTag&#39;).style.display=&#39;block&#39;">img</option>
+                <option name="tag" value="textarea">textarea</option>
+                <option name="tag" value="input">input</option>
+                <option name="tag" value="b" selected="">bold</option>
+                <option name="tag" value="i">italic</option>
+            </select>
+            <p id="imgTag" style="display:none">
+                <span>Img Url<input type="text" class="imgUrl" name="imgUrl" value="WebDrag.jpg"></span>
+            </p>
+            <p>
+                <textarea id="codeToInjectInTag">WebDrag
+    </textarea>
+            </p>
+        </form>
+    </div>
+</body>
+</html>
