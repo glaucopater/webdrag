@@ -1,0 +1,213 @@
+/*
+19 Aprile
+aggiunti ruler sopra ed a sinistra di boxmain
+
+8 marzo casa
+modificata la dimensione della toolbox e qualche parametro
+*/
+
+body
+{
+  background:#F2f2f2; 
+}
+
+ input
+ {
+	border:1px solid #000;
+	background:#fff url(input_white.gif) no-repeat;
+ }
+
+
+form
+{
+  margin:2px;
+  
+  padding:1px;
+  border: 1px solid #f0a066;
+  background:#556677;  
+  width: 95%;  
+  /*text-align:center;*/
+}
+
+input
+{
+  width:30px;
+  margin:2px;
+  border: 1px solid #000;
+}
+
+input:hover
+{
+  border: 1px solid #0f5;
+}
+
+td
+{
+	color: #fdfdfd;
+}
+
+td .small
+{
+	  width:30px;
+	  color: red;
+}
+
+
+p
+{
+	font-size:85%;
+	margin: 0;
+	padding:2px 0;
+	text-align:left;
+}
+
+#mainBox
+{
+  border:1px solid black;
+    
+  /*margin:50px auto;*/     
+  /*background: url("ruler-top.gif") repeat-x;  */    
+  cursor:crosshair;  
+  
+  width:800px;  
+  height:600px;
+  
+  background:#fff; 
+}
+.newBox
+{
+  border:1px solid black;
+  /*display:inline;*/
+  display:block;
+  background-color: #ffffc0;
+  
+}
+.boxA {
+  background-color: #ffffc0;
+  border: 1px solid #000000;
+  padding: 8px;
+  position: relative;
+  left: 0px;
+  top: 0px;
+  width: 8em;
+}
+
+.boxB {
+  background-color: #fffff0;
+  border: 1px solid #000000;
+  padding: 2px;
+  position: relative;
+  width: 10em;
+}
+
+
+.text
+{
+	width:80px;
+}
+
+.toHide
+{
+    border:1px solid #000;
+    display:block;
+}
+
+#info
+{
+ border: 1px solid #000;
+ width: 180px;
+ height: 180px;
+}
+
+
+ 
+
+.inputNumber
+{
+	 width:4em;
+}
+.inputText
+{
+	width:5em;
+}
+
+
+#boxInfoForm
+{
+ background:#87b8e2;
+ border: 1px solid #000;
+ width: 170px;
+ padding:5px;
+ position: absolute;
+ top:5px;
+ right:5px;
+ color: #fefefe;
+
+}
+ 
+ 
+#topRuler
+{
+	width:800px;
+	
+	height:5px;
+	
+	position: absolute;
+	margin: -9px 0 0 0 !important;
+	margin: -28px 0 0 0;
+	
+	
+	border-bottom: 1px solid #000;
+	border-left: 1px solid #000;
+	border-right: 1px solid #000;
+	
+	background: #d6a471 url("ruler-bottom.gif") repeat-x bottom left;    	
+}
+
+#leftRuler
+{
+	width:4px;
+	height:600px;
+	position: absolute;
+	margin: 0 0 0 -8px !important; 	
+	margin: 0 0 0 -10px;		
+	border-top: 1px solid #000;
+	border-bottom: 1px solid #000;	
+	border-right: 1px solid #000;	
+	background: #d6a471 url("ruler-left.gif") repeat-y ;    
+	
+}
+
+
+#optionForm
+{
+  margin:2px;
+  padding:5px;
+  border: 1px solid #f0a066;
+  background:#556677;    
+}
+
+
+#boxOption
+{
+	margin:2px;
+	color:#fff;
+	padding:5px;
+}
+
+ #codeToInjectInTag
+ {
+	width:250px;
+	height:80px; 
+	overflow: block;	
+	
+	background:#fff url(input_white.gif) no-repeat;
+	/*overflow:scroll;	*/	
+ }
+ 
+ 
+ .imgUrl
+ {
+	width:250px;
+ }
+ 
