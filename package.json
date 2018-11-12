@@ -1,0 +1,29 @@
+{
+  "name": "webdrag",
+  "version": "2.0.0",
+  "description": "A CSS Editor",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/glaucopater/webdrag.git"
+  },
+  "keywords": [
+    "design",
+    "css",
+    "box",
+    "online"
+  ],
+  "author": "Glauco Pater",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/glaucopater/webdrag/issues"
+  },
+  "homepage": "https://github.com/glaucopater/webdrag#readme",
+  "dependencies": {
+    "jest": "^23.6.0",
+    "jest-cli": "^23.6.0"
+  }
+}
